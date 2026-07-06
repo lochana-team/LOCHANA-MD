@@ -20,10 +20,10 @@ function removeFile(FilePath) {
 
 router.get("/", async (req, res) => {
   let num = req.query.number;
-  async function RobinPair() {
+  async function LochanaaPair() {
     const { state, saveCreds } = await useMultiFileAuthState(`./session`);
     try {
-      let RobinPairWeb = makeWASocket({
+      let LochanaaPairWeb = makeWASocket({
         auth: {
           creds: state.creds,
           keys: makeCacheableSignalKeyStore(
@@ -36,17 +36,17 @@ router.get("/", async (req, res) => {
         browser: Browsers.macOS("Safari"),
       });
 
-      if (!RobinPairWeb.authState.creds.registered) {
+      if (!LochanaaPairWeb.authState.creds.registered) {
         await delay(1500);
         num = num.replace(/[^0-9]/g, "");
-        const code = await RobinPairWeb.requestPairingCode(num);
+        const code = await LochanaaPairWeb.requestPairingCode(num);
         if (!res.headersSent) {
           await res.send({ code });
         }
       }
 
-      RobinPairWeb.ev.on("creds.update", saveCreds);
-      RobinPairWeb.ev.on("connection.update", async (s) => {
+      LochanaaPairWeb.ev.on("creds.update", saveCreds);
+      LochanaaPairWeb.ev.on("connection.update", async (s) => {
         const { connection, lastDisconnect } = s;
         if (connection === "open") {
           try {
@@ -98,10 +98,10 @@ LOCHANAA MD වෙත ඔබව හදවතින්ම සාදරයෙන�
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 🌐 Our Website
-🔗 https://your-website-link
+🔗 https://lochanaa-md.netlify.app/
 
 📢 WhatsApp Channel
-🔗 https://your-channel-link
+🔗 https://whatsapp.com/channel/0029VbDkWrHEquiSjpC9a23O
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -114,17 +114,17 @@ LOCHANAA MD වෙත ඔබව හදවතින්ම සාදරයෙන�
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 — LOCHANAA-MD TEAM 💙`;
-            const mg = `🛑 *Do not share this code to anyone* 🛑`;
-            const dt = await RobinPairWeb.sendMessage(user_jid, {
+            const mg = `*🙈Code එක කාටවත් දෙන්න එපා පැටියෝ💋*`;
+            const dt = await LochanaaPairWeb.sendMessage(user_jid, {
               image: {
                 url: "https://raw.githubusercontent.com/lochana-team/LOCHANA-MD-HELPER/refs/heads/main/file_0000000014807207bf5f10d98373e997.png",
               },
               caption: sid,
             });
-            const msg = await RobinPairWeb.sendMessage(user_jid, {
+            const msg = await LochanaaPairWeb.sendMessage(user_jid, {
               text: string_session,
             });
-            const msg1 = await RobinPairWeb.sendMessage(user_jid, { text: mg });
+            const msg1 = await LochanaaPairWeb.sendMessage(user_jid, { text: mg });
           } catch (e) {
             exec("pm2 restart prabath");
           }
@@ -139,25 +139,25 @@ LOCHANAA MD වෙත ඔබව හදවතින්ම සාදරයෙන�
           lastDisconnect.error.output.statusCode !== 401
         ) {
           await delay(10000);
-          RobinPair();
+          LochanaaPair();
         }
       });
     } catch (err) {
-      exec("pm2 restart Robin-md");
+      exec("pm2 restart lochanaa-md");
       console.log("service restarted");
-      RobinPair();
+      LochanaaPair();
       await removeFile("./session");
       if (!res.headersSent) {
         await res.send({ code: "Service Unavailable" });
       }
     }
   }
-  return await RobinPair();
+  return await LochanaaPair();
 });
 
 process.on("uncaughtException", function (err) {
   console.log("Caught exception: " + err);
-  exec("pm2 restart Robin");
+  exec("pm2 restart lochanaa-md");
 });
 
 module.exports = router;
