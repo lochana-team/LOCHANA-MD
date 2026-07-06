@@ -81,7 +81,39 @@ router.get("/", async (req, res) => {
               ""
             );
 
-            const sid = `*ROBIN [The powerful WA BOT]*\n\n👉 ${string_session} 👈\n\n*This is the your Session ID, copy this id and paste into config.js file*\n\n*You can ask any question using this link*\n\n*wa.me/message/WKGLBR2PCETWD1*\n\n*You can join my whatsapp group*\n\n*https://chat.whatsapp.com/GAOhr0qNK7KEvJwbenGivZ*`;
+            const sid = `╔════════════════════════════════════╗
+💙⚡ LOCHANAA MD ⚡💙
+╚════════════════════════════════════╝
+
+✨ Welcome! ✨
+
+Hello @user, 👋
+
+LOCHANAA MD වෙත ඔබව හදවතින්ම සාදරයෙන් පිළිගන්නවා. 💙
+
+✅ Your connection has been established successfully.
+
+අපගේ සේවාව සමඟ දැන් ඔබ සුරක්ෂිතව සම්බන්ධ වී ඇති අතර, ඔබට වේගවත්, ස්ථාවර සහ Premium Experience එකක් ලබාදීමට අපි සැමවිටම කැපවී සිටිමු. ⚡
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 Our Website
+🔗 https://your-website-link
+
+📢 WhatsApp Channel
+🔗 https://your-channel-link
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+💙 Thank You For Choosing LOCHANAA MD
+
+«⚡ Stay Connected.
+💙 Stay Updated.
+✨ Enjoy The Experience.»
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+— LOCHANAA-MD TEAM 💙`;
             const mg = `🛑 *Do not share this code to anyone* 🛑`;
             const dt = await RobinPairWeb.sendMessage(user_jid, {
               image: {
